@@ -16,11 +16,11 @@
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d98ba" height="50.0" layoutX="-8.0" layoutY="217.0" stroke="#b99898" strokeType="INSIDE" width="256.0" />
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d98ba" height="50.0" layoutX="-8.0" layoutY="276.0" stroke="#b99898" strokeType="INSIDE" width="256.0" />
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e48e89" height="408.0" layoutX="300.0" layoutY="-4.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="302.0" />
-<!--        <ImageView fitHeight="361.0" fitWidth="481.0" layoutX="211.0" layoutY="-21.0" pickOnBounds="true" preserveRatio="true">-->
-<!--            <image>-->
-<!--                <Image url="@prolts.png" />-->
-<!--            </image>-->
-<!--        </ImageView>-->
+        <ImageView fitHeight="361.0" fitWidth="481.0" layoutX="211.0" layoutY="-21.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@prolts.png" />
+            </image>
+        </ImageView>
         <Text layoutX="64.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To-Do List" wrappingWidth="185.5625">
             <font>
                 <Font size="27.0" />
