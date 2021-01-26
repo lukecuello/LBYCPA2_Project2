@@ -21,7 +21,12 @@ public class tdController {
             userInput.add(expense.getText());
             userInput.add(amount.getText());
             userInput.add(date.getAccessibleText());
+            queue.add(userInput.toString());
 
+            system.setText("Item added to list.");
+            expense.setText("");
+            amount.setText("");
+            date.setAccessibleText("");
         }
     }
 }
