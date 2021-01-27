@@ -41,6 +41,6 @@
                 </AnchorPane>
             </content>
         </ScrollPane>
-        <Button fx:id="addToList" layoutX="173.0" layoutY="280.0" mnemonicParsing="false" text="Add to list" />
+        <Button fx:id="addToList" layoutX="173.0" layoutY="280.0" mnemonicParsing="false" onAction="#addClick" text="Add to list" />
     </children>
 </AnchorPane>
