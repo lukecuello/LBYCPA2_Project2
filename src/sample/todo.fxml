@@ -1,36 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.tdController">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.tdController">
     <children>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff5349" height="76.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9285ab" height="324.0" layoutY="76.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
-        <ListView fx:id="list" layoutX="14.0" layoutY="93.0" onMouseClicked="#display" prefHeight="263.0" prefWidth="572.0" />
-        <Button layoutX="470.0" layoutY="368.0" mnemonicParsing="false" onAction="#goBack" text="Back to Main Menu" />
-        <TextField fx:id="expense" layoutX="14.0" layoutY="38.0" />
-        <TextField fx:id="amount" layoutX="181.0" layoutY="38.0" />
-        <TextField fx:id="date" layoutX="348.0" layoutY="38.0" />
-        <Button fx:id="addToList" layoutX="532.0" layoutY="10.0" mnemonicParsing="false" onAction="#addClick" text="Add" />
-        <Label layoutX="42.0" layoutY="13.0" text="Expense Due">
-            <font>
-                <Font name="System Bold" size="19.0" />
-            </font>
-        </Label>
-        <Label layoutX="228.0" layoutY="12.0" text="Amount">
-            <font>
-                <Font size="20.0" />
-            </font>
-        </Label>
-        <Label layoutX="382.0" layoutY="12.0" text="Month Due">
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff5349" height="408.0" layoutY="-8.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="302.0" />
+        <TextField fx:id="expense " layoutX="58.0" layoutY="78.0" prefHeight="27.0" prefWidth="188.0" />
+        <TextField fx:id="amount " layoutX="58.0" layoutY="155.0" prefHeight="27.0" prefWidth="188.0" />
+        <DatePicker fx:id="date " layoutX="58.0" layoutY="234.0" />
+        <Label layoutX="97.0" layoutY="52.0" text="Expense Due">
             <font>
                 <Font name="System Bold" size="20.0" />
             </font>
         </Label>
-        <Label fx:id="system" layoutX="75.0" layoutY="368.0" prefHeight="17.0" prefWidth="303.0" />
-        <Button layoutX="526.0" layoutY="42.0" mnemonicParsing="false" text="Delete" />
+        <Label layoutX="118.0" layoutY="129.0" text="Amount">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="113.0" layoutY="208.0" text="Date Due">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
+        <ScrollPane layoutX="302.0" prefHeight="400.0" prefWidth="302.0">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="301.0" style="-fx-background-color: #e48e89;">
+                    <children>
+                        <ListView prefHeight="400.0" prefWidth="302.0" style="-fx-background-color: #e48e89;" />
+                    </children>
+                </AnchorPane>
+            </content>
+        </ScrollPane>
+        <Button fx:id="addToList" layoutX="173.0" layoutY="280.0" mnemonicParsing="false" onAction="#addClick" text="Add to list" />
     </children>
 </AnchorPane>
