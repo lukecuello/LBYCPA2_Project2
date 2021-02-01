@@ -2,6 +2,7 @@ package sample;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
@@ -13,20 +14,19 @@ public class allController {
     ListView<String> lv;
     @FXML
     TextField screen;
+    @FXML
+    ChoiceBox<String> sort;
 
+    String[] choices = {"Month", "Price", "Expense"};
+
+
+    public void sortBy(){
+        for(int i = 0; i<choices.length;i++){
+            sort.getItems().add(choices[i]);
+        }
+    }
     public void initialize(){
-        lv.getItems().add("January");
-        lv.getItems().add("February");
-        lv.getItems().add("March");
-        lv.getItems().add("April");
-        lv.getItems().add("May");
-        lv.getItems().add("June");
-        lv.getItems().add("July");
-        lv.getItems().add("August");
-        lv.getItems().add("September");
-        lv.getItems().add("October");
-        lv.getItems().add("November");
-        lv.getItems().add("December");
+       //Sorting algorithm to be displayed on the List View
     }
 
     public void displaySelected(){
