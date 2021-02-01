@@ -64,60 +64,60 @@
             <Font size="50.0" />
          </font>
       </Text>
-      <Text fill="#171616" layoutX="38.0" layoutY="314.0" opacity="0.1" strokeType="OUTSIDE" strokeWidth="0.0" text="To-Do List" textAlignment="CENTER" wrappingWidth="141.0">
+      <Text fill="#171616" layoutX="38.0" layoutY="314.0" opacity="0.2" strokeType="OUTSIDE" strokeWidth="0.0" text="To-Do List" textAlignment="CENTER" wrappingWidth="141.0">
          <font>
             <Font size="25.0" />
          </font>
       </Text>
-      <Text layoutX="52.0" layoutY="130.0" opacity="0.1" strokeType="OUTSIDE" strokeWidth="0.0" text="To-Do List">
+      <Text layoutX="52.0" layoutY="130.0" opacity="0.2" strokeType="OUTSIDE" strokeWidth="0.0" text="To-Do List">
          <font>
             <Font size="25.0" />
          </font>
       </Text>
-      <Text layoutX="418.0" layoutY="314.0" opacity="0.1" strokeType="OUTSIDE" strokeWidth="0.0" text="All Expenses" wrappingWidth="141.0">
+      <Text layoutX="418.0" layoutY="314.0" opacity="0.2" strokeType="OUTSIDE" strokeWidth="0.0" text="All Expenses" wrappingWidth="141.0">
          <font>
             <Font size="25.0" />
          </font>
       </Text>
-      <Text layoutX="50.0" layoutY="193.0" opacity="0.1" strokeType="OUTSIDE" strokeWidth="0.0" text="To-Do List">
+      <Text layoutX="50.0" layoutY="193.0" opacity="0.2" strokeType="OUTSIDE" strokeWidth="0.0" text="To-Do List">
          <font>
             <Font size="25.0" />
          </font>
       </Text>
-      <Text layoutX="53.0" layoutY="370.0" opacity="0.1" strokeType="OUTSIDE" strokeWidth="0.0" text="To-Do List">
+      <Text layoutX="53.0" layoutY="370.0" opacity="0.2" strokeType="OUTSIDE" strokeWidth="0.0" text="To-Do List">
          <font>
             <Font size="25.0" />
          </font>
       </Text>
-      <Text layoutX="408.0" layoutY="370.0" opacity="0.1" strokeType="OUTSIDE" strokeWidth="0.0" text="All Expenses" textAlignment="CENTER" wrappingWidth="161.26708984375">
+      <Text layoutX="408.0" layoutY="370.0" opacity="0.2" strokeType="OUTSIDE" strokeWidth="0.0" text="All Expenses" textAlignment="CENTER" wrappingWidth="161.26708984375">
          <font>
             <Font size="25.0" />
          </font>
       </Text>
-      <Text layoutX="219.0" layoutY="371.0" opacity="0.1" strokeType="OUTSIDE" strokeWidth="0.0" text="Budget Tracker">
+      <Text layoutX="219.0" layoutY="371.0" opacity="0.2" strokeType="OUTSIDE" strokeWidth="0.0" text="Budget Tracker">
          <font>
             <Font size="25.0" />
          </font>
       </Text>
-      <Text layoutX="216.0" layoutY="315.0" opacity="0.1" strokeType="OUTSIDE" strokeWidth="0.0" text="Budget Tracker">
+      <Text layoutX="216.0" layoutY="315.0" opacity="0.2" strokeType="OUTSIDE" strokeWidth="0.0" text="Budget Tracker">
          <font>
             <Font size="25.0" />
          </font>
       </Text>
-      <Text layoutX="217.0" layoutY="194.0" opacity="0.1" strokeType="OUTSIDE" strokeWidth="0.0" text="Budget Tracker" wrappingWidth="165.0">
+      <Text layoutX="217.0" layoutY="194.0" opacity="0.2" strokeType="OUTSIDE" strokeWidth="0.0" text="Budget Tracker" wrappingWidth="165.0">
          <font>
             <Font size="25.0" />
          </font></Text>
-      <Text layoutX="220.0" layoutY="130.0" opacity="0.1" strokeType="OUTSIDE" strokeWidth="0.0" text="Budget Tracker">
+      <Text layoutX="220.0" layoutY="130.0" opacity="0.2" strokeType="OUTSIDE" strokeWidth="0.0" text="Budget Tracker">
          <font>
             <Font size="25.0" />
          </font>
       </Text>
-      <Text layoutX="418.0" layoutY="130.0" opacity="0.1" strokeType="OUTSIDE" strokeWidth="0.0" text="All Expenses" wrappingWidth="141.0">
+      <Text layoutX="418.0" layoutY="130.0" opacity="0.2" strokeType="OUTSIDE" strokeWidth="0.0" text="All Expenses" wrappingWidth="141.0">
          <font>
             <Font size="25.0" />
          </font></Text>
-      <Text layoutX="418.0" layoutY="194.0" opacity="0.1" strokeType="OUTSIDE" strokeWidth="0.0" text="All Expenses" wrappingWidth="141.0">
+      <Text layoutX="418.0" layoutY="194.0" opacity="0.2" strokeType="OUTSIDE" strokeWidth="0.0" text="All Expenses" wrappingWidth="141.0">
          <font>
             <Font size="25.0" />
          </font></Text>
