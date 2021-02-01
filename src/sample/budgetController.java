@@ -2,6 +2,7 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 
@@ -27,7 +28,7 @@ public class budgetController {
     String[] budgets;
 
     public void initialize() throws IOException {
-        BufferedReader userRead = new BufferedReader(new FileReader("src\\sample\\monthlyBudgets.txt"));
+        BufferedReader userRead = new BufferedReader(new FileReader("src/sample/monthlyBudgets.txt"));
         String line = userRead.readLine();
         budgets = line.split("\\|");
 
@@ -73,5 +74,11 @@ public class budgetController {
 
     public void select(){
         remove.setDisable(false);
+    }
+
+    public void goBack() throws IOException {
+        Main app = new Main();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("mainMenu.fxml"));
+        app.setRoot(loader.load());
     }
 }

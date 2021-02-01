@@ -7,8 +7,8 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.tdController">
     <children>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff5349" height="76.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9285ab" height="324.0" layoutY="76.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eb523b" height="76.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#20639b" height="324.0" layoutY="76.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
         <ListView fx:id="list" layoutX="14.0" layoutY="93.0" onMouseClicked="#display" prefHeight="263.0" prefWidth="572.0" />
         <Button layoutX="470.0" layoutY="368.0" mnemonicParsing="false" onAction="#goBack" text="Back to Main Menu" />
         <TextField fx:id="expense" layoutX="14.0" layoutY="38.0" />
