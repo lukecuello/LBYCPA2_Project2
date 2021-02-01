@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.Button?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.menuController">
+    <children>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff5349" height="408.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="302.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d98ba" height="50.0" layoutX="29.0" layoutY="102.0" stroke="#b99898" strokeType="INSIDE" width="256.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d98ba" height="50.0" layoutX="29.0" layoutY="159.0" stroke="#b99898" strokeType="INSIDE" width="256.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d98ba" height="50.0" layoutX="29.0" layoutY="216.0" stroke="#b99898" strokeType="INSIDE" width="256.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d98ba" height="50.0" layoutX="29.0" layoutY="275.0" stroke="#b99898" strokeType="INSIDE" width="256.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e48e89" height="408.0" layoutX="300.0" layoutY="-4.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="302.0" />
+        <ImageView fitHeight="361.0" fitWidth="481.0" layoutX="222.0" layoutY="-21.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@prolts.png" />
+            </image>
+        </ImageView>
+        <Text layoutX="64.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To-Do List" textAlignment="CENTER" wrappingWidth="185.5625">
+            <font>
+                <Font size="27.0" />
+            </font>
+        </Text>
+        <Text layoutX="58.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expenses Paid" textAlignment="CENTER" wrappingWidth="185.5625">
+            <font>
+                <Font size="27.0" />
+            </font>
+        </Text>
+        <Text layoutX="25.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Monthly Expenses" textAlignment="CENTER" wrappingWidth="264.1330128205128">
+            <font>
+                <Font size="21.0" />
+            </font>
+        </Text>
+        <Text layoutX="37.0" layoutY="308.0" strokeType="OUTSIDE" strokeWidth="0.0" text="All Expenses" textAlignment="CENTER" wrappingWidth="239.5625">
+            <font>
+                <Font size="21.0" />
+            </font>
+        </Text>
+<!--        <Button fx:id="button" layoutX="-8.0" layoutY="275.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="63.0" />-->
+<!--        <Button fx:id="button" layoutX="-8.0" layoutY="158.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="63.0" />-->
+<!--        <Button fx:id="button" layoutX="-8.0" layoutY="217.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="63.0" />-->
+<!--        <Button fx:id="button" layoutX="-8.0" layoutY="102.0" mnemonicParsing="false" onAction="#button1" prefHeight="50.0" prefWidth="63.0" />-->
+    </children>
+</AnchorPane>
