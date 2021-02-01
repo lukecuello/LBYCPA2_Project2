@@ -10,7 +10,7 @@ public class Main extends Application {
     public static Scene scene;
     @Override
     public void start(Stage primaryStage) throws Exception{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("budgetTracker.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
         scene = new Scene(loader.load());
         primaryStage.setScene(scene);
         primaryStage.show();

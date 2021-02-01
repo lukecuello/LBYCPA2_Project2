@@ -9,7 +9,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class budgetController {
     @FXML
@@ -65,8 +64,8 @@ public class budgetController {
         FileWriter update = new FileWriter("src\\sample\\monthlyBudgets.txt",true);
         text.write("");
         text.close();
-        for(int i =0; i < budgets.length;i++){
-            update.append(budgets[i]+"|");
+        for(String i:budgets){
+            update.append(i+"|");
         }
         update.close();
         bon.setText(budgets[choiceBox.getSelectionModel().getSelectedIndex()]);
