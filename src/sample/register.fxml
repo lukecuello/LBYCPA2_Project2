@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.registerController">
+    <left>
+        <AnchorPane prefHeight="400.0" prefWidth="235.0" BorderPane.alignment="CENTER">
+            <children>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#173f5f" height="400.0" stroke="#941b1b" strokeType="INSIDE" width="237.0" />
+                <ImageView fitHeight="111.0" fitWidth="133.0" layoutX="62.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@prolts.png" />
+                    </image>
+                </ImageView>
+                <Text fill="WHITE" layoutX="29.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personal Expense Tracker" textAlignment="CENTER" wrappingWidth="177.25390625">
+                    <font>
+                        <Font name="Symbol" size="22.0" />
+                    </font>
+                </Text>
+                <Text fill="WHITE" layoutX="31.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" text="We Serve at your Expense">
+                    <font>
+                        <Font name="Symbol" size="15.0" />
+                    </font>
+                </Text>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#20639b" height="53.0" layoutX="44.0" layoutY="319.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="148.0" />
+                <Button fx:id="goBack" layoutX="70.0" layoutY="333.0" mnemonicParsing="false" onAction="#goBack" text="Return to login" />
+            </children>
+        </AnchorPane>
+    </left>
+    <right>
+        <AnchorPane prefHeight="400.0" prefWidth="451.0" BorderPane.alignment="CENTER">
+            <children>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ed553b" height="400.0" layoutX="6.0" stroke="#941b1b" strokeType="INSIDE" width="364.0" />
+                <TextField fx:id="username" layoutX="149.0" layoutY="140.0" prefHeight="25.0" prefWidth="192.0" promptText="username@email.com" />
+                <PasswordField fx:id="password" layoutX="148.0" layoutY="182.0" prefHeight="25.0" prefWidth="195.0" promptText="..." />
+                <PasswordField fx:id="password1" layoutX="148.0" layoutY="223.0" prefHeight="25.0" prefWidth="195.0" promptText="..." />
+                <Text fill="WHITE" layoutX="98.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Text>
+                <Text fill="WHITE" layoutX="71.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Text>
+                <Text fill="WHITE" layoutX="14.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confrim Password:">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Text>
+                <Button fx:id="confirm" layoutX="216.0" layoutY="290.0" mnemonicParsing="false" onAction="#register" text="Confirm" />
+                <Text fx:id="errorText" fill="WHITE" layoutX="149.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password Does not Match" visible="false">
+                    <font>
+                        <Font name="Symbol" size="13.0" />
+                    </font>
+                </Text>
+                <Text fx:id="rText" fill="WHITE" layoutX="156.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Successfully Registered!" visible="false">
+                    <font>
+                        <Font name="Symbol" size="13.0" />
+                    </font>
+                </Text>
+            </children>
+        </AnchorPane>
+    </right>
+</BorderPane>
