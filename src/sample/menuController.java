@@ -1,56 +1,34 @@
 package sample;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.LinkedList;
 
 
 public class menuController{
-
+    Main app = new Main();
     LinkedList<FXMLLoader> llist = new LinkedList<>();
-    public Button button;
 
     public void initialize(){
         FXMLLoader todo = new FXMLLoader(getClass().getResource("todo.fxml"));
         FXMLLoader expensesPaid = new FXMLLoader(getClass().getResource("expenses.fxml"));
-        FXMLLoader monthly = new FXMLLoader(getClass().getResource("monthly.fxml"));
-
+        FXMLLoader allexp = new FXMLLoader(getClass().getResource("all.fxml"));
 
         llist.add(todo);
-        llist.add(monthly);
+        llist.add(expensesPaid);
+        llist.add(allexp);
     }
 
-    public void button1(ActionEvent event){
-        FXMLLoader loader = (FXMLLoader) llist.get(0);
-        Parent root = null;
-        try {
-            root = loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        Stage stage = (Stage) button.getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
+    public void todo() throws IOException{
+        app.setRoot(llist.get(0).load());
     }
 
-    public void button3(ActionEvent event){
-        FXMLLoader loader = (FXMLLoader) llist.get(1);
-        Parent root = null;
-        try {
-            root = loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void paid() throws IOException{
+        app.setRoot(llist.get(1).load());
+    }
 
-        Stage stage = (Stage) button.getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
+    public void all() throws IOException{
+        app.setRoot(llist.get(2).load());
     }
 }

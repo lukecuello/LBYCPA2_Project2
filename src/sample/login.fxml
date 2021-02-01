@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.loginController">
+    <left>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#173f5f" height="400.0" stroke="#941b1b" strokeType="INSIDE" width="235.0" />
+                <ImageView fitHeight="111.0" fitWidth="133.0" layoutX="62.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@prolts.png" />
+                    </image>
+                </ImageView>
+                <Text fill="WHITE" layoutX="29.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personal Expense Tracker" textAlignment="CENTER" wrappingWidth="177.25390625">
+                    <font>
+                        <Font name="Symbol" size="22.0" />
+                    </font>
+                </Text>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#20639b" height="53.0" layoutX="47.0" layoutY="318.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="148.0" />
+                <Button fx:id="register" layoutX="76.0" layoutY="332.0" mnemonicParsing="false" onAction="#register" text="Register Now!" />
+                <Text fill="WHITE" layoutX="31.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Don't Have an account yet?">
+                    <font>
+                        <Font name="Symbol" size="15.0" />
+                    </font>
+                </Text>
+            </children>
+        </AnchorPane>
+    </left>
+    <center>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ed553b" height="400.0" stroke="#941b1b" strokeType="INSIDE" width="366.0" />
+                <TextField fx:id="username" layoutX="125.0" layoutY="158.0" prefHeight="25.0" prefWidth="192.0" promptText="username@email.com" />
+                <Button fx:id="confirm" layoutX="192.0" layoutY="262.0" mnemonicParsing="false" onAction="#login" text="Confirm" />
+                <Text fill="WHITE" layoutX="75.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Text>
+                <Text fill="WHITE" layoutX="48.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Text>
+                <PasswordField fx:id="password" layoutX="124.0" layoutY="200.0" prefHeight="25.0" prefWidth="195.0" promptText="..." />
+                <Text fx:id="error" fill="WHITE" layoutX="129.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                    <font>
+                        <Font name="Symbol" size="12.0" />
+                    </font>
+                </Text>
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>
