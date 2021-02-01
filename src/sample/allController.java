@@ -15,9 +15,18 @@ public class allController {
     TextField screen;
 
     public void initialize(){
-        for(int i = 0; i < 20; i++){
-            lv.getItems().add("woop");
-        }
+        lv.getItems().add("January");
+        lv.getItems().add("February");
+        lv.getItems().add("March");
+        lv.getItems().add("April");
+        lv.getItems().add("May");
+        lv.getItems().add("June");
+        lv.getItems().add("July");
+        lv.getItems().add("August");
+        lv.getItems().add("September");
+        lv.getItems().add("October");
+        lv.getItems().add("November");
+        lv.getItems().add("December");
     }
 
     public void displaySelected(){
