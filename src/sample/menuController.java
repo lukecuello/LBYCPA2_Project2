@@ -12,11 +12,11 @@ public class menuController{
 
     public void initialize(){
         FXMLLoader todo = new FXMLLoader(getClass().getResource("todo.fxml"));
-        FXMLLoader expensesPaid = new FXMLLoader(getClass().getResource("expenses.fxml"));
+        FXMLLoader budgetTracker = new FXMLLoader(getClass().getResource("budgetTracker.fxml"));
         FXMLLoader allexp = new FXMLLoader(getClass().getResource("all.fxml"));
 
         llist.add(todo);
-        llist.add(expensesPaid);
+        llist.add(budgetTracker);
         llist.add(allexp);
     }
 
@@ -24,7 +24,7 @@ public class menuController{
         app.setRoot(llist.get(0).load());
     }
 
-    public void paid() throws IOException{
+    public void budget() throws IOException{
         app.setRoot(llist.get(1).load());
     }
 
