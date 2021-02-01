@@ -1,50 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
-<?import javafx.scene.control.Button?>
-
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.menuController">
     <children>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff5349" height="408.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="302.0" />
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d98ba" height="50.0" layoutX="29.0" layoutY="102.0" stroke="#b99898" strokeType="INSIDE" width="256.0" />
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d98ba" height="50.0" layoutX="29.0" layoutY="159.0" stroke="#b99898" strokeType="INSIDE" width="256.0" />
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d98ba" height="50.0" layoutX="29.0" layoutY="216.0" stroke="#b99898" strokeType="INSIDE" width="256.0" />
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d98ba" height="50.0" layoutX="29.0" layoutY="275.0" stroke="#b99898" strokeType="INSIDE" width="256.0" />
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e48e89" height="408.0" layoutX="300.0" layoutY="-4.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="302.0" />
-        <ImageView fitHeight="361.0" fitWidth="481.0" layoutX="222.0" layoutY="-21.0" pickOnBounds="true" preserveRatio="true">
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#173f5f" height="75.0" layoutX="-6.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="606.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ed553b" height="350.0" layoutX="-3.0" layoutY="64.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="606.0" />
+        <ImageView fitHeight="54.0" fitWidth="50.0" layoutX="8.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@prolts.png" />
             </image>
         </ImageView>
-        <Text layoutX="64.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To-Do List" textAlignment="CENTER" wrappingWidth="185.5625">
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#20639b" height="301.0" layoutX="13.0" layoutY="87.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="574.0" />
+        <ImageView fitHeight="218.0" fitWidth="176.0" layoutX="33.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@notepad-removebg-preview.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="218.0" fitWidth="217.0" layoutX="189.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@paid.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="217.0" fitWidth="227.0" layoutX="380.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@calendar.png" />
+            </image>
+        </ImageView>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#20639b" height="75.0" layoutX="50.0" layoutY="238.0" stroke="#daa7a7" strokeType="INSIDE" strokeWidth="0.0" width="58.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4e5b68" height="44.0" layoutX="22.0" layoutY="229.0" opacity="0.48" stroke="#5b5b5b" strokeType="INSIDE" strokeWidth="0.0" width="173.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4e5b68" height="44.0" layoutX="214.0" layoutY="229.0" opacity="0.42" stroke="#5b5b5b" strokeType="INSIDE" strokeWidth="0.0" width="173.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4e5b68" height="44.0" layoutX="402.0" layoutY="229.0" opacity="0.42" stroke="#5b5b5b" strokeType="INSIDE" strokeWidth="0.0" width="173.0" />
+        <Text fill="WHITE" layoutX="38.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To-Do List" textAlignment="CENTER" wrappingWidth="141.0">
             <font>
-                <Font size="27.0" />
+                <Font size="25.0" />
             </font>
         </Text>
-        <Text layoutX="58.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expenses Paid" textAlignment="CENTER" wrappingWidth="185.5625">
+        <Text fill="WHITE" layoutX="218.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Budget Tracker" textAlignment="CENTER" wrappingWidth="165.0">
             <font>
-                <Font size="27.0" />
+                <Font size="25.0" />
             </font>
         </Text>
-        <Text layoutX="25.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Monthly Expenses" textAlignment="CENTER" wrappingWidth="264.1330128205128">
+        <Text fill="WHITE" layoutX="406.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="All Expenses" textAlignment="CENTER" wrappingWidth="165.0">
             <font>
-                <Font size="21.0" />
+                <Font size="25.0" />
             </font>
         </Text>
-        <Text layoutX="37.0" layoutY="308.0" strokeType="OUTSIDE" strokeWidth="0.0" text="All Expenses" textAlignment="CENTER" wrappingWidth="239.5625">
-            <font>
-                <Font size="21.0" />
-            </font>
-        </Text>
-<!--        <Button fx:id="button" layoutX="-8.0" layoutY="275.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="63.0" />-->
-<!--        <Button fx:id="button" layoutX="-8.0" layoutY="158.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="63.0" />-->
-<!--        <Button fx:id="button" layoutX="-8.0" layoutY="217.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="63.0" />-->
-<!--        <Button fx:id="button" layoutX="-8.0" layoutY="102.0" mnemonicParsing="false" onAction="#button1" prefHeight="50.0" prefWidth="63.0" />-->
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#60da93" height="218.0" layoutX="33.0" layoutY="126.0" onMouseClicked="#todo" opacity="0.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="173.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#60da93" height="218.0" layoutX="214.0" layoutY="120.0" onMouseClicked="#budget" opacity="0.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="173.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#60da93" height="218.0" layoutX="402.0" layoutY="127.0" onMouseClicked="#all" opacity="0.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="173.0" />
+      <Text fill="#171717" layoutX="137.0" layoutY="42.0" opacity="0.7" strokeType="OUTSIDE" strokeWidth="0.0" text="MAIN MENU" textAlignment="CENTER" wrappingWidth="320.22900390625">
+         <font>
+            <Font size="50.0" />
+         </font>
+      </Text>
+      <Line endX="100.0" layoutX="206.0" layoutY="237.0" rotate="90.0" scaleX="1.5" startX="-100.0" />
+      <Line endX="100.0" layoutX="395.0" layoutY="237.0" rotate="90.0" scaleX="1.5" startX="-100.0" />
+      <Text fill="#eeeaea" layoutX="137.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MAIN MENU" textAlignment="CENTER" wrappingWidth="320.22900390625">
+         <font>
+            <Font size="50.0" />
+         </font>
+      </Text>
+      <Text fill="#171616" layoutX="38.0" layoutY="314.0" opacity="0.2" strokeType="OUTSIDE" strokeWidth="0.0" text="To-Do List" textAlignment="CENTER" wrappingWidth="141.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text layoutX="52.0" layoutY="130.0" opacity="0.2" strokeType="OUTSIDE" strokeWidth="0.0" text="To-Do List">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text layoutX="418.0" layoutY="314.0" opacity="0.2" strokeType="OUTSIDE" strokeWidth="0.0" text="All Expenses" wrappingWidth="141.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text layoutX="50.0" layoutY="193.0" opacity="0.2" strokeType="OUTSIDE" strokeWidth="0.0" text="To-Do List">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text layoutX="53.0" layoutY="370.0" opacity="0.2" strokeType="OUTSIDE" strokeWidth="0.0" text="To-Do List">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text layoutX="408.0" layoutY="370.0" opacity="0.2" strokeType="OUTSIDE" strokeWidth="0.0" text="All Expenses" textAlignment="CENTER" wrappingWidth="161.26708984375">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text layoutX="219.0" layoutY="371.0" opacity="0.2" strokeType="OUTSIDE" strokeWidth="0.0" text="Budget Tracker">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text layoutX="216.0" layoutY="315.0" opacity="0.2" strokeType="OUTSIDE" strokeWidth="0.0" text="Budget Tracker">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text layoutX="217.0" layoutY="194.0" opacity="0.2" strokeType="OUTSIDE" strokeWidth="0.0" text="Budget Tracker" wrappingWidth="165.0">
+         <font>
+            <Font size="25.0" />
+         </font></Text>
+      <Text layoutX="220.0" layoutY="130.0" opacity="0.2" strokeType="OUTSIDE" strokeWidth="0.0" text="Budget Tracker">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text layoutX="418.0" layoutY="130.0" opacity="0.2" strokeType="OUTSIDE" strokeWidth="0.0" text="All Expenses" wrappingWidth="141.0">
+         <font>
+            <Font size="25.0" />
+         </font></Text>
+      <Text layoutX="418.0" layoutY="194.0" opacity="0.2" strokeType="OUTSIDE" strokeWidth="0.0" text="All Expenses" wrappingWidth="141.0">
+         <font>
+            <Font size="25.0" />
+         </font></Text>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
     </children>
 </AnchorPane>
