@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="437.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.budgetController">
+   <top>
+      <AnchorPane prefHeight="139.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#173f5f" height="140.0" stroke="#d07534" strokeType="INSIDE" width="600.0" />
+            <Rectangle arcHeight="100.0" arcWidth="100.0" fill="WHITE" height="104.0" layoutX="13.0" layoutY="19.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="574.0" />
+            <Rectangle arcHeight="100.0" arcWidth="100.0" fill="#ffffff00" height="111.0" layoutX="12.0" layoutY="14.0" stroke="#20639b" strokeLineCap="ROUND" strokeType="INSIDE" strokeWidth="5.0" width="577.0">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </Rectangle>
+            <Text layoutX="48.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Budget on Hand">
+               <font>
+                  <Font name="Symbol" size="19.0" />
+               </font>
+            </Text>
+            <Text layoutX="48.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Budget Needed" wrappingWidth="141.77880859375">
+               <font>
+                  <Font name="Symbol" size="19.0" />
+               </font>
+            </Text>
+            <Text layoutX="365.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Php" wrappingWidth="45.77880859375">
+               <font>
+                  <Font name="Symbol" size="19.0" />
+               </font>
+            </Text>
+            <Text fx:id="bon" layoutX="411.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="--" wrappingWidth="110.77880859375">
+               <font>
+                  <Font name="Symbol" size="19.0" />
+               </font>
+            </Text>
+            <Text layoutX="365.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Php" wrappingWidth="45.77880859375">
+               <font>
+                  <Font name="Symbol" size="19.0" />
+               </font>
+            </Text>
+            <Text fx:id="bn" layoutX="411.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="--" wrappingWidth="115.77880859375">
+               <font>
+                  <Font name="Symbol" size="19.0" />
+               </font>
+            </Text>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#20639b" height="12.0" layoutX="15.0" layoutY="64.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="574.0" />
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="232.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ed553b" height="307.0" layoutY="-4.0" stroke="#d07534" strokeType="INSIDE" width="600.0" />
+            <ListView fx:id="lv" layoutX="324.0" layoutY="13.0" onMouseClicked="#select" prefHeight="241.0" prefWidth="243.0" />
+            <ChoiceBox fx:id="choiceBox" layoutX="31.0" layoutY="73.0" prefWidth="150.0" />
+            <Text fill="WHITE" layoutX="31.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select a Month">
+               <font>
+                  <Font name="Symbol" size="18.0" />
+               </font>
+            </Text>
+            <TextField fx:id="budget" layoutX="31.0" layoutY="154.0" prefHeight="32.0" prefWidth="185.0" />
+            <Text fill="WHITE" layoutX="31.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Budget for this month">
+               <font>
+                  <Font name="Symbol" size="18.0" />
+               </font>
+            </Text>
+            <Text fx:id="errorTxt" layoutX="31.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Warning! Insufficient Funds" visible="false" wrappingWidth="198.13671875">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Text>
+            <Button fx:id="back" layoutX="31.0" layoutY="230.0" mnemonicParsing="false" onAction="#goBack" text="Back" />
+            <Button fx:id="remove" disable="true" layoutX="241.0" layoutY="230.0" mnemonicParsing="false" text="Remove" />
+            <Button fx:id="confirm" layoutX="241.0" layoutY="158.0" mnemonicParsing="false" onAction="#conf" text="Confirm" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
