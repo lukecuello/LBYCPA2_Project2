@@ -20,7 +20,6 @@ public class Main extends Application {
         scene.setRoot(loader);
     }
 
-
     public static void main(String[] args) {
         launch(args);
     }
