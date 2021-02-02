@@ -9,29 +9,67 @@ import javafx.scene.text.Text;
 
 public class tdController {
     public Button addToList;
-    public Text expenseTxt, amountTxt, dateTxt;
-    public TextField expense, amount, date, screen;
+    public TextField expense, amount;
+    public ListView<String> screen;
+    public ChoiceBox<String> date;
     public Label system;
     public ListView<String> list;
-    public ArrayList<String> userInput = new ArrayList<>();
-    public Queue<String> queue = new LinkedList<>();
+    HashMap<String,LinkedList<ArrayList<String>>> adjList = new HashMap<>();
+    String[] months = {"January","February","March","April","May","June","July","August","September","October","November","December"};
+
+    public void initialize(){
+        for(String i:months){
+            list.getItems().add(i);
+            date.getItems().add(i);
+        }
+    }
 
     public void addClick() {
-        if(expense.getText().isEmpty() || amount.getText().isEmpty() || date.getText().isEmpty()) {
+        if(expense.getText().isEmpty() || amount.getText().isEmpty()) {
             system.setText("Please fill in all the fields.");
         } else {
+            ArrayList<String> userInput = new ArrayList<>();
             userInput.add(expense.getText());
             userInput.add(amount.getText());
-            userInput.add(date.getText());
-            queue.add(userInput.toString());
-
-            list.getItems().add(userInput.toString());
+            addEdge(date.getSelectionModel().getSelectedItem(),userInput);
 
             system.setText("Item added to list.");
             expense.setText("");
             amount.setText("");
-            date.setText("");
+        }
+    }
 
+    public void addEdge(String src, ArrayList<String> dest){
+        Boolean containsValue = false;
+        ArrayList<String> temp = dest;
+
+        if(adjList.get(src) != null) {
+            for (ArrayList<String> i : adjList.get(src)) {
+                if (temp.get(0).equals(i.get(0))) {
+                    containsValue = true;
+                    break;
+                } else {
+                    containsValue = false;
+                }
+
+            }
+        }
+        if(!adjList.containsKey(src)){
+            LinkedList<ArrayList<String>> nodes= new LinkedList<>();
+            nodes.add(dest);
+            adjList.put(src,nodes);
+        }else if(containsValue){
+            for (ArrayList<String> i : adjList.get(src)) {
+                if(temp.get(0).equals(i.get(0))){
+                    int tempnum = Integer.parseInt(temp.get(1)) + Integer.parseInt(i.get(1));
+                    i.set(1,String.valueOf(tempnum));
+                    break;
+                }
+            }
+        }else{
+            LinkedList<ArrayList<String>> nodes = adjList.get(src);
+            nodes.add(dest);
+            adjList.put(src,nodes);
         }
     }
 
@@ -41,57 +79,19 @@ public class tdController {
         app.setRoot(loader.load());
     }
 
-    // Don't mind this muna, still fixing stuff
     public void display() {
         String selected = list.getSelectionModel().getSelectedItem();
-        if(selected.equalsIgnoreCase("January")) {
-            if(queue.contains("January")) {
-                screen.setText(queue.toString());
+        LinkedList<ArrayList<String>> edge = adjList.get(selected);
+        System.out.println(edge);
+        if(adjList.get(selected) != null) {
+            screen.getItems().clear();
+            for (ArrayList<String> i : edge) {
+                String td;
+                td = i.get(0) + "\t\t\t" + "Php"+i.get(1);
+                screen.getItems().add(td);
             }
-        } else if(selected.equalsIgnoreCase("February")) {
-            if (queue.contains("February")) {
-                screen.setText(queue.toString());
-            }
-        } else if(selected.equalsIgnoreCase("March")) {
-            if (queue.contains("March")) {
-                screen.setText(queue.toString());
-            }
-        } else if(selected.equalsIgnoreCase("April")) {
-            if (queue.contains("April")) {
-                screen.setText(queue.toString());
-            }
-        } else if(selected.equalsIgnoreCase("May")) {
-            if (queue.contains("May")) {
-                screen.setText(queue.toString());
-            }
-        } else if(selected.equalsIgnoreCase("June")) {
-            if (queue.contains("June")) {
-                screen.setText(queue.toString());
-            }
-        } else if(selected.equalsIgnoreCase("July")) {
-            if (queue.contains("July")) {
-                screen.setText(queue.toString());
-            }
-        } else if(selected.equalsIgnoreCase("August")) {
-            if (queue.contains("August")) {
-                screen.setText(queue.toString());
-            }
-        } else if(selected.equalsIgnoreCase("September")) {
-            if (queue.contains("September")) {
-                screen.setText(queue.toString());
-            }
-        } else if(selected.equalsIgnoreCase("October")) {
-            if (queue.contains("October")) {
-                screen.setText(queue.toString());
-            }
-        } else if(selected.equalsIgnoreCase("November")) {
-            if (queue.contains("November")) {
-                screen.setText(queue.toString());
-            }
-        } else if(selected.equalsIgnoreCase("December")) {
-            if (queue.contains("December")) {
-                screen.setText(queue.toString());
-            }
+        }else{
+            screen.getItems().clear();
         }
 
     }
