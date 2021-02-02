@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.*;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 
@@ -74,9 +75,17 @@ public class tdController {
     }
 
     public void goBack() throws IOException {
+        Parent root = null;
         Main app = new Main();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("mainMenu.fxml"));
-        app.setRoot(loader.load());
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        menuController setter = loader.getController();
+        setter.setMap(adjList);
+        app.setRoot(root);
     }
 
     public void display() {
