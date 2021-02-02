@@ -3,6 +3,7 @@ package sample;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 
@@ -10,6 +11,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.*;
 
 public class budgetController {
     @FXML
@@ -19,12 +22,12 @@ public class budgetController {
     @FXML
     Button remove,confirm,back;
     @FXML
-    Text bon,bn;
+    Text bon,bn,errorTxt;
     @FXML
     ChoiceBox<String> choiceBox;
 
+    HashMap<String,LinkedList<ArrayList<String>>> adjList;
     String[] months = {"January","February","March","April","May","June","July","August","September","October","November","December"};
-    String[][] testArray = {{"0","1"},{"2","3"},{"1","3"},{"5","3"},{"3","3"},{"6","7"},{"3","1"},{"346","23"},{"214","323"},{"12421","421"},{"1241","123"},{"123","123"}};
     String[] budgets;
 
     public void initialize() throws IOException {
@@ -46,10 +49,22 @@ public class budgetController {
     }
 
     public void printtoLV(){
-        String[] values = testArray[choiceBox.getSelectionModel().getSelectedIndex()];
+        int budget = 0;
+        System.out.println(adjList.keySet());
         lv.getItems().clear();
-        for(int i = 0; i < values.length; i++){
-            lv.getItems().add(values[i]);
+        String selected = choiceBox.getSelectionModel().getSelectedItem();
+        System.out.println(adjList.keySet());
+        System.out.println(adjList.get(selected));
+        LinkedList<ArrayList<String>> edge = adjList.get(selected);
+        for (ArrayList<String> i : edge) {
+            String td;
+            td = i.get(0) + "\t\t\t" + "Php"+i.get(1);
+            budget += Integer.parseInt(i.get(1));
+            lv.getItems().add(td);
+        }
+        bn.setText(String.valueOf(budget));
+        if(Integer.parseInt(budgets[choiceBox.getSelectionModel().getSelectedIndex()]) < Integer.parseInt(bn.getText())){
+            errorTxt.setVisible(true);
         }
     }
 
@@ -72,13 +87,25 @@ public class budgetController {
         bon.setText(budgets[choiceBox.getSelectionModel().getSelectedIndex()]);
     }
 
+    public void setMap(HashMap<String,LinkedList<ArrayList<String>>> map){
+       this.adjList = map;
+    }
+
     public void select(){
         remove.setDisable(false);
     }
 
-    public void goBack() throws IOException {
+    public void goBack() {
+        Parent root = null;
         Main app = new Main();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("mainMenu.fxml"));
-        app.setRoot(loader.load());
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        menuController setter = loader.getController();
+        setter.setMap(adjList);
+        app.setRoot(root);
     }
 }

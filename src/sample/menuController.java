@@ -1,14 +1,18 @@
 package sample;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 
 
 public class menuController{
     Main app = new Main();
     LinkedList<FXMLLoader> llist = new LinkedList<>();
+    HashMap<String,LinkedList<ArrayList<String>>> adjList;
 
     public void initialize(){
         FXMLLoader todo = new FXMLLoader(getClass().getResource("todo.fxml"));
@@ -19,13 +23,24 @@ public class menuController{
         llist.add(budgetTracker);
         llist.add(allexp);
     }
-
+    public void setMap(HashMap<String,LinkedList<ArrayList<String>>> map){
+        this.adjList = map;
+    }
     public void todo() throws IOException{
         app.setRoot(llist.get(0).load());
     }
 
     public void budget() throws IOException{
-        app.setRoot(llist.get(1).load());
+        FXMLLoader loader = llist.get(1);
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        budgetController setter = loader.getController();
+        setter.setMap(adjList);
+        app.setRoot(root);
     }
 
     public void all() throws IOException{
