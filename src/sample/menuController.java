@@ -12,6 +12,7 @@ import java.util.LinkedList;
 public class menuController{
     Main app = new Main();
     LinkedList<FXMLLoader> llist = new LinkedList<>();
+    ArrayList<Integer> payments;
     HashMap<String,LinkedList<ArrayList<String>>> adjList;
 
     public void initialize(){
@@ -26,6 +27,7 @@ public class menuController{
     public void setMap(HashMap<String,LinkedList<ArrayList<String>>> map){
         this.adjList = map;
     }
+    public void setArray(ArrayList<Integer> array){this.payments = array;}
     public void todo() throws IOException{
         app.setRoot(llist.get(0).load());
     }
@@ -53,6 +55,7 @@ public class menuController{
         }
         allController setter = loader.getController();
         setter.setMap(adjList);
+        setter.setArray(payments);
         app.setRoot(root);
     }
 

@@ -16,6 +16,7 @@ public class tdController {
     public ListView<String> list;
     public Profile profile;
     HashMap<String,LinkedList<ArrayList<String>>> adjList = new HashMap<>();
+    ArrayList<Integer> payments = new ArrayList<>();
     String[] months = {"January","February","March","April","May","June","July","August","September","October","November","December"};
 
     public void initialize(){
@@ -32,6 +33,8 @@ public class tdController {
             ArrayList<String> userInput = new ArrayList<>();
             userInput.add(expense.getText());
             userInput.add(amount.getText());
+            int value = Integer.parseInt(amount.getText());
+            payments.add(value);
             addEdge(date.getSelectionModel().getSelectedItem(),userInput);
 
             system.setText("Item added to list.");
@@ -86,6 +89,7 @@ public class tdController {
         }
         menuController setter = loader.getController();
         setter.setMap(adjList);
+        setter.setArray(payments);
         app.setRoot(root);
     }
 

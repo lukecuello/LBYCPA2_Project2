@@ -10,6 +10,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -24,6 +25,8 @@ public class allController {
     ListView<String> lv, screen;
     @FXML
     ChoiceBox<String> sort;
+    @FXML
+    Text money;
 
     String[] choices = {"Month", "Price", "Expense"};
     String[] months = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
@@ -32,8 +35,7 @@ public class allController {
 
 
    HashMap<String, LinkedList<ArrayList<String>>> adjList;
-   LinkedList<ArrayList<String>> node;
-
+   ArrayList<Integer> paymentz;
 
 
     public void initialize(){
@@ -70,13 +72,13 @@ public class allController {
            }
        }
        for(int j=0; j<expense.length;j++){
-           if(selected.equalsIgnoreCase(expense[j])){
-               lv.setOnMouseClicked(e -> sortByExpense(selected));
+           if(selected.equals(expense[j])){
+               sortByExpense(selected);
            }
        }
        for(int k=0;k<prices.length;k++){
            if(selected.equals(prices[k])){
-               lv.setOnMouseClicked(e -> expenseQuickSort(selected));
+               expenseQuickSort(selected);
            }
        }
 
@@ -84,19 +86,24 @@ public class allController {
     }
 
     public void sortByExpense(String expense){
-//        lv.getSelectionModel().selectedItemProperty().addListener((Action) ->{
-//            ArrayList<String> expenses = node.element(expense);
-//            LinkedList<ArrayList<String>> edge = adjList.get(months);
-//            for(ArrayList<String> i: edge){
-//                String sorted = i.toString();
-//                screen.getItems().add(sorted);
-//            }
-//            screen.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-//
-//        });
+            screen.getItems().clear();
+            Set<String> keys = adjList.keySet();
+            System.out.println(keys);
+            LinkedList<ArrayList<String>> edge = adjList.get(keys);
+            if(edge.contains(expense) && (edge != null)) {
+                for (ArrayList<String> i : edge) {
+                    String sorted = i.toString();
+                    screen.getItems().add(sorted);
+                }
+            }
+            screen.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+
     }
 
+
     public void sortByInstance(String month){
+        Integer total=0;
+        String stotal;
         screen.getItems().clear();
         LinkedList<ArrayList<String>> edge = adjList.get(month);
         if(edge!=null) {
@@ -105,14 +112,23 @@ public class allController {
                 screen.getItems().add(sorted);
             }
         }
+        for(int i=0; i<paymentz.size(); i++){
+            if(i<paymentz.size()-1) {
+                total = paymentz.get(i) + paymentz.get(i + 1);
+            }
+            else
+                break;
+        }
+        System.out.println(paymentz);
+        stotal = Integer.toString(total);
+        String totals = "PHP" + stotal;
         screen.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-
+        money.setText(totals);
     }
 
     public void expenseQuickSort(String amount)
     {
 //        int expense=Integer.parseInt(amount);
-//        lv.getSelectionModel().selectedItemProperty().addListener((Action) ->{
 //            ArrayList<String> expenses = node.element(expense);
 //            LinkedList<ArrayList<String>> edge = adjList.get(months);
 //            for(ArrayList<String> i: edge){
@@ -122,12 +138,14 @@ public class allController {
 //            }
 //            screen.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 //
-//        });
+//       ]
     }
 
     public void setMap(HashMap<String,LinkedList<ArrayList<String>>> map){
         this.adjList = map;
     }
+
+    public void setArray(ArrayList<Integer> array){this.paymentz = array;}
 
 
 
@@ -140,8 +158,7 @@ public class allController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        menuController setter = loader.getController();
-        setter.setMap(adjList);
+
         app.setRoot(root);
     }
 }
