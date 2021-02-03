@@ -30,8 +30,8 @@ public class allController {
     String[] prices = {"100000","75000", "50000","25000", "10000", "5000", "2500","1000", "500"};
     String[] expense = {"Electricity", "Water", "Groceries", "Tax", "Insurance", "Food", "Luxury", "Apparel","Miscellaneous"};
 
-    tdController hash = new tdController();
-   HashMap<String, LinkedList<ArrayList<String>>> adjList = hash.getHashMap();
+
+   HashMap<String, LinkedList<ArrayList<String>>> adjList;
    LinkedList<ArrayList<String>> node;
 
 
@@ -66,7 +66,7 @@ public class allController {
        String selected = lv.getSelectionModel().getSelectedItem();
        for(int i =0; i < months.length;i++){
            if(selected.equals(months[i])){
-               lv.setOnMouseClicked(e -> sortByInstance(selected));
+               sortByInstance(selected);
            }
        }
        for(int j=0; j<expense.length;j++){
@@ -97,11 +97,13 @@ public class allController {
     }
 
     public void sortByInstance(String month){
+        screen.getItems().clear();
         LinkedList<ArrayList<String>> edge = adjList.get(month);
-        System.out.println(edge);
-        for(ArrayList<String> i: edge){
-            String sorted = i.toString();
-            screen.getItems().add(sorted);
+        if(edge!=null) {
+            for (ArrayList<String> i : edge) {
+                String sorted = i.toString();
+                screen.getItems().add(sorted);
+            }
         }
         screen.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
@@ -123,6 +125,9 @@ public class allController {
 //        });
     }
 
+    public void setMap(HashMap<String,LinkedList<ArrayList<String>>> map){
+        this.adjList = map;
+    }
 
 
 

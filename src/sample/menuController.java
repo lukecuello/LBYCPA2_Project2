@@ -44,6 +44,16 @@ public class menuController{
     }
 
     public void all() throws IOException{
-        app.setRoot(llist.get(2).load());
+        FXMLLoader loader = llist.get(2);
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        allController setter = loader.getController();
+        setter.setMap(adjList);
+        app.setRoot(root);
     }
+
 }

@@ -89,8 +89,6 @@ public class tdController {
         app.setRoot(root);
     }
 
-    public HashMap<String,LinkedList<ArrayList<String>>> getHashMap(){return adjList;}
-
     public void display() {
         String selected = list.getSelectionModel().getSelectedItem();
         LinkedList<ArrayList<String>> edge = adjList.get(selected);
