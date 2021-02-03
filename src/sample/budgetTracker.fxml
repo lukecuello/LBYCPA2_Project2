@@ -73,8 +73,7 @@
                   <Font size="13.0" />
                </font>
             </Text>
-            <Button fx:id="back" layoutX="31.0" layoutY="230.0" mnemonicParsing="false" onAction="#goBack" text="Back" />
-            <Button fx:id="remove" disable="true" layoutX="241.0" layoutY="230.0" mnemonicParsing="false" text="Remove" />
+            <Button fx:id="back" layoutX="31.0" layoutY="230.0" mnemonicParsing="false" onAction="#goBack" text="Back to Main Menu" />
             <Button fx:id="confirm" layoutX="241.0" layoutY="158.0" mnemonicParsing="false" onAction="#conf" text="Confirm" />
          </children>
       </AnchorPane>
