@@ -21,7 +21,7 @@ public class registerController {
     @FXML
     Text rText,errorText;
 
-    public Profile profile;
+
 
     public void register() throws IOException {
         String userN = username.getText();
@@ -37,7 +37,6 @@ public class registerController {
                 e.printStackTrace();
             }
             addPass(pass);
-            profile.addNode(userN);
 
         }else{
             errorText.setVisible(true);

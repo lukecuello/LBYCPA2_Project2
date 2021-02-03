@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ChoiceBox;
@@ -13,25 +15,22 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.beans.EventHandler;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
+import java.util.*;
 
 
 public class allController {
     @FXML
-    ListView<String> lv;
-    @FXML
-    TextField screen;
+    ListView<String> lv, screen;
     @FXML
     ChoiceBox<String> sort;
 
     String[] choices = {"Month", "Price", "Expense"};
     String[] months = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
-    String[] prices = {"100000","75000", "50000","25000", "10000", "5000", "2500","1000", "500", "300"};
-    String[] expense = {"Electricity", "Water", "Groceries", "Tax", "Insurance", "Food", "Luxury", "Apparel", ""};
+    String[] prices = {"100000","75000", "50000","25000", "10000", "5000", "2500","1000", "500"};
+    String[] expense = {"Electricity", "Water", "Groceries", "Tax", "Insurance", "Food", "Luxury", "Apparel","Miscellaneous"};
 
-   public Profile profile;
+   HashMap<String, LinkedList<ArrayList<String>>> adjList;
+   LinkedList<ArrayList<String>> node;
 
 
 
@@ -64,22 +63,58 @@ public class allController {
     public void displaySelected(){
        String selected = lv.getSelectionModel().getSelectedItem();
        for(int i =0; i < months.length;i++){
-           if(selected.equals(months[i]) || selected.equalsIgnoreCase(expense[i])){
-               lv.setOnContextMenuRequested(e -> sortByInstance());
+           if(selected.equals(months[i])){
+               lv.setOnContextMenuRequested(e -> sortByInstance(selected));
+           }
+           else if(selected.equalsIgnoreCase(expense[i])){
+               lv.setOnContextMenuRequested(e -> sortByExpense(selected));
            }
            else if(selected.equals(prices[i])){
-               lv.setOnContextMenuRequested(e -> expenseBubbleSort());
+               lv.setOnContextMenuRequested(e -> expenseBubbleSort(selected));
            }
        }
 
     }
 
-    public void sortByInstance(){
+    public void sortByExpense(String expense){
+        lv.getSelectionModel().selectedItemProperty().addListener((Action) ->{
+            ArrayList<String> expenses = node.element(expense);
+            LinkedList<ArrayList<String>> edge = adjList.get(months);
+            for(ArrayList<String> i: edge){
+                String sorted = i.toString();
+                screen.getItems().add(sorted);
+            }
+            screen.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
+        });
     }
 
-    public void expenseBubbleSort()
+    public void sortByInstance(String month){
+        lv.getSelectionModel().selectedItemProperty().addListener((Action) ->{
+            LinkedList<ArrayList<String>> edge = adjList.get(month);
+            for(ArrayList<String> i: edge){
+                String sorted = i.toString();
+                screen.getItems().add(sorted);
+            }
+            screen.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+
+        });
+    }
+
+    public void expenseBubbleSort(String amount)
     {
+        int expense=Integer.parseInt(amount);
+        lv.getSelectionModel().selectedItemProperty().addListener((Action) ->{
+            ArrayList<String> expenses = node.element(expense);
+            LinkedList<ArrayList<String>> edge = adjList.get(months);
+            for(ArrayList<String> i: edge){
+               for(Iterator<String> it = expenses.iterator();it.hasNext();){
+                   Collections.sort(expenses);
+               }
+            }
+            screen.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+
+        });
 //        boolean swapped = true;
 //        int a;
 //        int b = 0;
@@ -109,6 +144,8 @@ public class allController {
     public void goBack() throws IOException {
         Main app = new Main();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("mainMenu.fxml"));
+        menuController setter = loader.getController();
+        setter.setMap(adjList);
         app.setRoot(loader.load());
     }
 }

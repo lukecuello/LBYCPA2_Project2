@@ -37,7 +37,7 @@ public class tdController {
             system.setText("Item added to list.");
             expense.setText("");
             amount.setText("");
-            profile.addExpense(expense.getText(), amount.getText(), date.getSelectionModel().getSelectedItem());
+
         }
     }
 
