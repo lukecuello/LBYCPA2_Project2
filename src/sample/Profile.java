@@ -52,6 +52,10 @@ public class Profile {
         this.value = value;
     }
 
+    public List<String> getExpenses() {
+        return adjList.get(this.username);
+    }
+
     public void addExpense(String expense, String value, String date) {
         LinkedList<String>nodes = adjList.get(username);
         nodes.add(expense);
