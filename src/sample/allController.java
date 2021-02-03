@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
@@ -29,7 +30,8 @@ public class allController {
     String[] prices = {"100000","75000", "50000","25000", "10000", "5000", "2500","1000", "500"};
     String[] expense = {"Electricity", "Water", "Groceries", "Tax", "Insurance", "Food", "Luxury", "Apparel","Miscellaneous"};
 
-   HashMap<String, LinkedList<ArrayList<String>>> adjList;
+    tdController hash = new tdController();
+   HashMap<String, LinkedList<ArrayList<String>>> adjList = hash.getHashMap();
    LinkedList<ArrayList<String>> node;
 
 
@@ -64,88 +66,77 @@ public class allController {
        String selected = lv.getSelectionModel().getSelectedItem();
        for(int i =0; i < months.length;i++){
            if(selected.equals(months[i])){
-               lv.setOnContextMenuRequested(e -> sortByInstance(selected));
-           }
-           else if(selected.equalsIgnoreCase(expense[i])){
-               lv.setOnContextMenuRequested(e -> sortByExpense(selected));
-           }
-           else if(selected.equals(prices[i])){
-               lv.setOnContextMenuRequested(e -> expenseBubbleSort(selected));
+               lv.setOnMouseClicked(e -> sortByInstance(selected));
            }
        }
+       for(int j=0; j<expense.length;j++){
+           if(selected.equalsIgnoreCase(expense[j])){
+               lv.setOnMouseClicked(e -> sortByExpense(selected));
+           }
+       }
+       for(int k=0;k<prices.length;k++){
+           if(selected.equals(prices[k])){
+               lv.setOnMouseClicked(e -> expenseQuickSort(selected));
+           }
+       }
+
 
     }
 
     public void sortByExpense(String expense){
-        lv.getSelectionModel().selectedItemProperty().addListener((Action) ->{
-            ArrayList<String> expenses = node.element(expense);
-            LinkedList<ArrayList<String>> edge = adjList.get(months);
-            for(ArrayList<String> i: edge){
-                String sorted = i.toString();
-                screen.getItems().add(sorted);
-            }
-            screen.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-
-        });
+//        lv.getSelectionModel().selectedItemProperty().addListener((Action) ->{
+//            ArrayList<String> expenses = node.element(expense);
+//            LinkedList<ArrayList<String>> edge = adjList.get(months);
+//            for(ArrayList<String> i: edge){
+//                String sorted = i.toString();
+//                screen.getItems().add(sorted);
+//            }
+//            screen.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+//
+//        });
     }
 
     public void sortByInstance(String month){
-        lv.getSelectionModel().selectedItemProperty().addListener((Action) ->{
-            LinkedList<ArrayList<String>> edge = adjList.get(month);
-            for(ArrayList<String> i: edge){
-                String sorted = i.toString();
-                screen.getItems().add(sorted);
-            }
-            screen.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        LinkedList<ArrayList<String>> edge = adjList.get(month);
+        System.out.println(edge);
+        for(ArrayList<String> i: edge){
+            String sorted = i.toString();
+            screen.getItems().add(sorted);
+        }
+        screen.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
-        });
     }
 
-    public void expenseBubbleSort(String amount)
+    public void expenseQuickSort(String amount)
     {
-        int expense=Integer.parseInt(amount);
-        lv.getSelectionModel().selectedItemProperty().addListener((Action) ->{
-            ArrayList<String> expenses = node.element(expense);
-            LinkedList<ArrayList<String>> edge = adjList.get(months);
-            for(ArrayList<String> i: edge){
-               for(Iterator<String> it = expenses.iterator();it.hasNext();){
-                   Collections.sort(expenses);
-               }
-            }
-            screen.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-
-        });
-//        boolean swapped = true;
-//        int a;
-//        int b = 0;
-//
-////        StackPane tmp;
-//        while (swapped)
-//        {
-//            swapped = false;
-//            b++;
-//            for (a = 0; a < stackPane.length - b; a++)
-//            {
-//                if (getNum(getText(profile.[a]).getText()) > getNum(getText(stackPane[a+1]).getText()))
-//                {
-//                    swapPanes(stackPane[a], stackPane[a+1]);
-//                    tmp = stackPane[a];
-//                    stackPane[a] = stackPane[a + 1];
-//                    stackPane[a + 1] = tmp;
-//                    swapped = true;
-//                }
+//        int expense=Integer.parseInt(amount);
+//        lv.getSelectionModel().selectedItemProperty().addListener((Action) ->{
+//            ArrayList<String> expenses = node.element(expense);
+//            LinkedList<ArrayList<String>> edge = adjList.get(months);
+//            for(ArrayList<String> i: edge){
+//               for(Iterator<String> it = expenses.iterator();it.hasNext();){
+//                   Collections.sort(expenses);
+//               }
 //            }
-//        }
+//            screen.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+//
+//        });
     }
 
 
 
 
     public void goBack() throws IOException {
+        Parent root = null;
         Main app = new Main();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("mainMenu.fxml"));
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         menuController setter = loader.getController();
         setter.setMap(adjList);
-        app.setRoot(loader.load());
+        app.setRoot(root);
     }
 }
