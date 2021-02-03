@@ -6,7 +6,6 @@ import java.util.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
-import javafx.scene.text.Text;
 
 public class tdController {
     public Button addToList;
@@ -15,6 +14,7 @@ public class tdController {
     public ChoiceBox<String> date;
     public Label system;
     public ListView<String> list;
+    public Profile profile;
     HashMap<String,LinkedList<ArrayList<String>>> adjList = new HashMap<>();
     String[] months = {"January","February","March","April","May","June","July","August","September","October","November","December"};
 
@@ -37,6 +37,7 @@ public class tdController {
             system.setText("Item added to list.");
             expense.setText("");
             amount.setText("");
+            profile.addExpense(expense.getText(), amount.getText(), date.getSelectionModel().getSelectedItem());
         }
     }
 

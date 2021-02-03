@@ -27,7 +27,7 @@ public class allController {
 
     String[] choices = {"Month", "Price", "Expense"};
 
-    HashMap<String, LinkedList<ArrayList<String>>> adjList = new HashMap<>();
+   public Profile profile;
 
 
 

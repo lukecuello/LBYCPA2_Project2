@@ -21,6 +21,7 @@ public class loginController {
     Text error;
 
     Main app = new Main();
+    public Profile profile;
 
     public void login() throws IOException {
         checkLogin check = new checkLogin();

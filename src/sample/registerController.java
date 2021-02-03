@@ -9,6 +9,7 @@ import javafx.scene.text.Text;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.LinkedList;
 
 public class registerController {
     @FXML
@@ -19,6 +20,8 @@ public class registerController {
     TextField username;
     @FXML
     Text rText,errorText;
+
+    public Profile profile;
 
     public void register() throws IOException {
         String userN = username.getText();
@@ -34,6 +37,9 @@ public class registerController {
                 e.printStackTrace();
             }
             addPass(pass);
+            Profile newUser = new Profile(userN);
+            profile.users.add(newUser);
+
         }else{
             errorText.setVisible(true);
             rText.setVisible(false);
