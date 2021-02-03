@@ -24,7 +24,7 @@ public class Profile {
         this.value="";
         this.date="";
         this.budget="";
-        this.date="";
+        this.budgetdate="";
     }
 
     public String getUsername()
