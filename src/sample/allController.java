@@ -87,16 +87,33 @@ public class allController {
 
     public void sortByExpense(String expense){
             screen.getItems().clear();
+            Integer total=0;
+            String stotal;
             Set<String> keys = adjList.keySet();
             System.out.println(keys);
             LinkedList<ArrayList<String>> edge = adjList.get(keys);
-            if(edge.contains(expense) && (edge != null)) {
+
+            for(int i=0; i<paymentz.size(); i++){
+            if(i<paymentz.size()-1) {
+                total = paymentz.get(i) + paymentz.get(i + 1);
+            }
+            else
+                break;
+            }
+             System.out.println(paymentz);
+             stotal = Integer.toString(total);
+            String totals = "PHP" + stotal;
+            screen.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+            money.setText(totals);
+
+             if(edge.contains(expense) && (edge != null)) {
                 for (ArrayList<String> i : edge) {
-                    String sorted = i.toString();
-                    screen.getItems().add(sorted);
+                     String sorted = i.toString();
+                     screen.getItems().add(sorted);
                 }
             }
-            screen.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+
+
 
     }
 
