@@ -30,6 +30,11 @@ public class loginController {
 
         int action = check.CheckUser(usernameText,pass);
         if(action > -1){
+            for(int i = 0; i<profile.users.size();i++){
+                if(usernameText.equals(profile.users.get(i).toString())){
+                    profile.getProfile(usernameText);
+                }
+            }
             FXMLLoader loader = new FXMLLoader(getClass().getResource("mainMenu.fxml"));
             app.setRoot(loader.load());
         }else{

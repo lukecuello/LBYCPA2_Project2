@@ -20,7 +20,7 @@
                 <Font size="15.0" />
             </font>
         </Text>
-        <Text layoutX="67.0" layoutY="369.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PHP 100.00" wrappingWidth="150.39999999999986">
+        <Text layoutX="67.0" layoutY="369.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PHP " wrappingWidth="150.39999999999986">
             <font>
                 <Font size="14.0" />
             </font>

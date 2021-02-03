@@ -37,8 +37,7 @@ public class registerController {
                 e.printStackTrace();
             }
             addPass(pass);
-            Profile newUser = new Profile(userN);
-            profile.users.add(newUser);
+            profile.addNode(userN);
 
         }else{
             errorText.setVisible(true);

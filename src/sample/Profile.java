@@ -27,6 +27,8 @@ public class Profile {
         this.budgetdate="";
     }
 
+    public LinkedList<String> getProfile(String name){return adjList.get(name);}
+
     public String getUsername()
     {
         return username;

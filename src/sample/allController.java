@@ -28,8 +28,8 @@ public class allController {
 
     String[] choices = {"Month", "Price", "Expense"};
     String[] months = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
-    String[] prices = {"100,000","75,000", "50,000","25,000", "10,000", "5,000", "1,000", "500", "300"};
-    String[] expense = {"Electricity", "Water", "Groceries", "Tax", "Insurance"};
+    String[] prices = {"100000","75000", "50000","25000", "10000", "5000", "2500","1000", "500", "300"};
+    String[] expense = {"Electricity", "Water", "Groceries", "Tax", "Insurance", "Food", "Luxury", "Apparel", ""};
 
    public Profile profile;
 
@@ -64,45 +64,43 @@ public class allController {
     public void displaySelected(){
        String selected = lv.getSelectionModel().getSelectedItem();
        for(int i =0; i < months.length;i++){
-           if(selected.equals(months[i]) || selected.equals(expense[i])){
-               lv.setOnContextMenuRequested(e -> perMonth());
+           if(selected.equals(months[i]) || selected.equalsIgnoreCase(expense[i])){
+               lv.setOnContextMenuRequested(e -> sortByInstance());
            }
            else if(selected.equals(prices[i])){
                lv.setOnContextMenuRequested(e -> expenseBubbleSort());
-           }
-           else{
-               continue;
            }
        }
 
     }
 
-    public void perMonth(){
+    public void sortByInstance(){
 
     }
 
     public void expenseBubbleSort()
     {
-        boolean swapped = true;
-        int a;
-        int b = 0;
-        StackPane tmp;
-        while (swapped)
-        {
-            swapped = false;
-            b++;
-            for (a = 0; a < stackPane.length - b; a++)
-            {
-                if (getNum(getText(stackPane[a]).getText()) > getNum(getText(stackPane[a+1]).getText()))
-                {
-                    swapPanes(stackPane[a], stackPane[a+1]);
-                    tmp = stackPane[a];
-                    stackPane[a] = stackPane[a + 1];
-                    stackPane[a + 1] = tmp;
-                    swapped = true;
-                }
-            }
-        }
+//        boolean swapped = true;
+//        int a;
+//        int b = 0;
+//
+////        StackPane tmp;
+//        while (swapped)
+//        {
+//            swapped = false;
+//            b++;
+//            for (a = 0; a < stackPane.length - b; a++)
+//            {
+//                if (getNum(getText(profile.[a]).getText()) > getNum(getText(stackPane[a+1]).getText()))
+//                {
+//                    swapPanes(stackPane[a], stackPane[a+1]);
+//                    tmp = stackPane[a];
+//                    stackPane[a] = stackPane[a + 1];
+//                    stackPane[a + 1] = tmp;
+//                    swapped = true;
+//                }
+//            }
+//        }
     }
 
 
