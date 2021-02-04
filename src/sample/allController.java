@@ -30,7 +30,7 @@ public class allController {
 
     String[] choices = {"Month", "Price", "Expense"};
     String[] months = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
-    String[] prices = {"100000","75000", "50000","25000", "10000", "5000", "2500","1000", "500"};
+    String[] prices = {"100000","75000", "56250","42180", "31640", "23730", "17790","13340", "10000","7500","5620","4210","3160","2370","1780","1330","1000","750","560","420","310","230","170"};
     String[] expense = {"Electricity", "Water", "Groceries", "Tax", "Insurance", "Food", "Luxury", "Apparel","Miscellaneous"};
 
 
@@ -86,34 +86,28 @@ public class allController {
     }
 
     public void sortByExpense(String expense){
-            screen.getItems().clear();
-            Integer total=0;
-            String stotal;
-            Set<String> keys = adjList.keySet();
-            System.out.println(keys);
-            LinkedList<ArrayList<String>> edge = adjList.get(keys);
-
-            for(int i=0; i<paymentz.size(); i++){
-            if(i<paymentz.size()-1) {
-                total = paymentz.get(i) + paymentz.get(i + 1);
-            }
-            else
-                break;
-            }
-             System.out.println(paymentz);
-             stotal = Integer.toString(total);
-            String totals = "PHP" + stotal;
-            screen.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-            money.setText(totals);
-
-             if(edge.contains(expense) && (edge != null)) {
-                for (ArrayList<String> i : edge) {
-                     String sorted = i.toString();
-                     screen.getItems().add(sorted);
+        Integer total=0;
+        String stotal;
+        screen.getItems().clear();
+        adjList.forEach((key,value)->{
+                LinkedList<ArrayList<String>> llist = adjList.get(key);
+                for(int i = 0; i<llist.size(); i++){
+                    ArrayList<String> expenses = llist.get(i);
+                    if(expenses.get(0).equalsIgnoreCase(expense)){
+                        screen.getItems().add(expenses.toString() + "   " + key);
+                    }
                 }
-            }
+        });
 
+        for(int i=0; i<paymentz.size(); i++){
 
+            total = total + paymentz.get(i);
+
+        }
+        stotal = Integer.toString(total);
+        String totals = "PHP" + stotal;
+        screen.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        money.setText(totals);
 
     }
 
@@ -123,6 +117,9 @@ public class allController {
         String stotal;
         screen.getItems().clear();
         LinkedList<ArrayList<String>> edge = adjList.get(month);
+        ArrayList<String> j = edge.get(0);
+        ArrayList<String> k = edge.get(1);
+        String test = j.get(0);
         if(edge!=null) {
             for (ArrayList<String> i : edge) {
                 String sorted = i.toString();
@@ -130,13 +127,14 @@ public class allController {
             }
         }
         for(int i=0; i<paymentz.size(); i++){
-            if(i<paymentz.size()-1) {
-                total = paymentz.get(i) + paymentz.get(i + 1);
-            }
-            else
-                break;
+
+            total = total + paymentz.get(i);
+
         }
-        System.out.println(paymentz);
+        System.out.println(edge);
+        System.out.println(j);
+        System.out.println(k);
+        System.out.println(test);
         stotal = Integer.toString(total);
         String totals = "PHP" + stotal;
         screen.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
@@ -145,17 +143,30 @@ public class allController {
 
     public void expenseQuickSort(String amount)
     {
-//        int expense=Integer.parseInt(amount);
-//            ArrayList<String> expenses = node.element(expense);
-//            LinkedList<ArrayList<String>> edge = adjList.get(months);
-//            for(ArrayList<String> i: edge){
-//               for(Iterator<String> it = expenses.iterator();it.hasNext();){
-//                   Collections.sort(expenses);
-//               }
-//            }
-//            screen.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-//
-//       ]
+        int p = Integer.parseInt(amount);
+        Integer total=0;
+        String stotal;
+        screen.getItems().clear();
+        adjList.forEach((key,value)->{
+                LinkedList<ArrayList<String>> llist = adjList.get(key);
+                for(int i = 0; i<llist.size(); i++){
+                    ArrayList<String> expenses = llist.get(i);
+                    int price = Integer.parseInt(expenses.get(1));
+                    if((price <= p) && (price > (p*3/4)) ){
+                        screen.getItems().add(expenses.toString() + "   " + key);
+                    }
+                }
+        });
+
+        for(int i=0; i<paymentz.size(); i++){
+
+            total = total + paymentz.get(i);
+
+        }
+        stotal = Integer.toString(total);
+        String totals = "PHP" + stotal;
+        screen.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        money.setText(totals);
     }
 
     public void setMap(HashMap<String,LinkedList<ArrayList<String>>> map){
