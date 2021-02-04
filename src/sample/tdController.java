@@ -16,6 +16,7 @@ public class tdController {
     public ListView<String> list;
 
     HashMap<String,LinkedList<ArrayList<String>>> adjList = new HashMap<>();
+    LinkedList<ArrayList<String>> nodes= new LinkedList<>();
     ArrayList<Integer> payments = new ArrayList<>();
     String[] months = {"January","February","March","April","May","June","July","August","September","October","November","December"};
 
@@ -46,7 +47,18 @@ public class tdController {
     }
     public void deleteClick() {
         int selected = screen.getSelectionModel().getSelectedIndex();
+        String select = screen.getSelectionModel().getSelectedItem();
+        String sselected = list.getSelectionModel().getSelectedItem();
         screen.getItems().remove(selected);
+        LinkedList<ArrayList<String>> llist = adjList.get(sselected);
+        for(int i=0; i<llist.size();i++){
+            ArrayList<String> aray = llist.get(i);
+            if((aray.get(0).compareTo(select) <= 3) && (aray.get(1).compareTo(select) <= 3)){
+                llist.remove(i);
+                payments.remove(i);
+            }
+        }
+        System.out.println(llist);
         system.setText("Item has been deleted from list.");
     }
 
@@ -66,7 +78,6 @@ public class tdController {
             }
         }
         if(!adjList.containsKey(src)){
-            LinkedList<ArrayList<String>> nodes= new LinkedList<>();
             nodes.add(dest);
             adjList.put(src,nodes);
         }else if(containsValue){
