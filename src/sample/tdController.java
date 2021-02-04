@@ -47,7 +47,6 @@ public class tdController {
     public void deleteClick() {
         int selected = screen.getSelectionModel().getSelectedIndex();
         screen.getItems().remove(selected);
-        adjList.re
         system.setText("Item has been deleted from list.");
     }
 
