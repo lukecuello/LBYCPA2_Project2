@@ -16,7 +16,6 @@ public class tdController {
     public ListView<String> list;
 
     HashMap<String,LinkedList<ArrayList<String>>> adjList = new HashMap<>();
-    LinkedList<ArrayList<String>> nodes= new LinkedList<>();
     ArrayList<Integer> payments = new ArrayList<>();
     String[] months = {"January","February","March","April","May","June","July","August","September","October","November","December"};
 
@@ -78,6 +77,7 @@ public class tdController {
             }
         }
         if(!adjList.containsKey(src)){
+            LinkedList<ArrayList<String>> nodes= new LinkedList<>();
             nodes.add(dest);
             adjList.put(src,nodes);
         }else if(containsValue){
