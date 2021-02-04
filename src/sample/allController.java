@@ -31,7 +31,7 @@ public class allController {
     String[] choices = {"Month", "Price", "Expense"};
     String[] months = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
     String[] prices = {"100000","75000", "56250","42180", "31640", "23730", "17790","13340", "10000","7500","5620","4210","3160","2370","1780","1330","1000","750","560","420","310","230","170"};
-    String[] expense = {"Electricity", "Water", "Groceries", "Tax", "Insurance", "Food", "Luxury", "Apparel","Miscellaneous"};
+    String[] expense = {"Electricity", "Water", "Groceries", "Tax", "Insurance", "Food", "Luxury", "Apparel","Miscellaneous","Gasoline"};
 
 
    HashMap<String, LinkedList<ArrayList<String>>> adjList;
@@ -93,7 +93,7 @@ public class allController {
                 LinkedList<ArrayList<String>> llist = adjList.get(key);
                 for(int i = 0; i<llist.size(); i++){
                     ArrayList<String> expenses = llist.get(i);
-                    if(expenses.get(0).equalsIgnoreCase(expense)){
+                    if(expenses.get(0).compareTo(expense) <= 12){
                         Integer amount = Integer.parseInt(expenses.get(1));
                         screen.getItems().add(expenses.toString() + "   " + key);
                     }
