@@ -29,6 +29,8 @@ public class budgetController {
     HashMap<String,LinkedList<ArrayList<String>>> adjList;
     String[] months = {"January","February","March","April","May","June","July","August","September","October","November","December"};
     String[] budgets;
+    ArrayList<Integer> payments;
+
 
     public void initialize() throws IOException {
         BufferedReader userRead = new BufferedReader(new FileReader("src/sample/monthlyBudgets.txt"));
@@ -47,6 +49,8 @@ public class budgetController {
             printtoLV();
         });
     }
+
+
 
     public void printtoLV(){
         int budget = 0;
