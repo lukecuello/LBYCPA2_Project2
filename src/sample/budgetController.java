@@ -94,6 +94,7 @@ public class budgetController {
     public void setMap(HashMap<String,LinkedList<ArrayList<String>>> map){
        this.adjList = map;
     }
+    public void setArray(ArrayList<Integer> array){this.payments = array;}
 
     public void select(){
         remove.setDisable(false);
@@ -110,6 +111,7 @@ public class budgetController {
         }
         menuController setter = loader.getController();
         setter.setMap(adjList);
+        setter.setArray(payments);
         app.setRoot(root);
     }
 }

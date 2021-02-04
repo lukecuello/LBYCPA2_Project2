@@ -28,6 +28,7 @@ public class menuController{
         this.adjList = map;
     }
     public void setArray(ArrayList<Integer> array){this.payments = array;}
+
     public void todo() throws IOException{
         app.setRoot(llist.get(0).load());
     }
@@ -42,6 +43,7 @@ public class menuController{
         }
         budgetController setter = loader.getController();
         setter.setMap(adjList);
+        setter.setArray(payments);
         app.setRoot(root);
     }
 

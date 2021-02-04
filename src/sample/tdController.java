@@ -44,6 +44,7 @@ public class tdController {
 
         }
     }
+
     public void deleteClick() {
         int selected = screen.getSelectionModel().getSelectedIndex();
         String select = screen.getSelectionModel().getSelectedItem();

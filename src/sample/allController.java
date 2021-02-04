@@ -28,10 +28,12 @@ public class allController {
     @FXML
     Text money;
 
+
+    Stack<Integer> stack = new Stack<>();
     String[] choices = {"Month", "Price", "Expense"};
     String[] months = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
     String[] prices = {"100000","75000", "56250","42180", "31640", "23730", "17790","13340", "10000","7500","5620","4210","3160","2370","1780","1330","1000","750","560","420","310","230","170","50"};
-    String[] expense = {"Electricity", "Water", "Groceries", "Tax", "Insurance", "Food", "Luxury", "Apparel","Gasoline","Miscellaneous"};
+    String[] expense = {"Electricity", "Water", "Groceries", "Tax", "Insurance", "Food", "Luxury", "Apparel","Gasoline","Internet", "Miscellaneous"};
 
 
    HashMap<String, LinkedList<ArrayList<String>>> adjList;
@@ -89,21 +91,23 @@ public class allController {
         Integer total=0;
         String stotal;
         screen.getItems().clear();
+
         adjList.forEach((key,value)->{
                 LinkedList<ArrayList<String>> llist = adjList.get(key);
                 for(int i = 0; i<llist.size(); i++){
                     ArrayList<String> expenses = llist.get(i);
                     if(expenses.get(0).equals(expense)){
-                        Integer amount = Integer.parseInt(expenses.get(1));
                         screen.getItems().add(expenses.toString() + "   " + key);
+                        String s = expenses.get(1);
+                        stack.push(Integer.parseInt(s));
                     }
                 }
         });
 
-        for(int i=0; i<paymentz.size(); i++){
-
-            total = total + paymentz.get(i);
-
+        for(int i=0; i<stack.size(); i++){
+            Integer top = stack.peek();
+            stack.pop();
+            total = total + top;
         }
         stotal = Integer.toString(total);
         String totals = "PHP" + stotal;
@@ -118,15 +122,21 @@ public class allController {
         String stotal;
         screen.getItems().clear();
         LinkedList<ArrayList<String>> edge = adjList.get(month);
+
         if(edge!=null) {
-            for (ArrayList<String> i : edge) {
+            for (int j = 0; j<edge.size(); j++) {
+                ArrayList<String> i = edge.get(j);
                 String sorted = i.toString();
                 screen.getItems().add(sorted);
+                String s = i.get(1);
+                System.out.println(s);
+                stack.push(Integer.parseInt(s));
             }
         }
-        for(int i=0; i<paymentz.size(); i++){
-
-            total = total + paymentz.get(i);
+        for(int i=0; i<stack.size(); i++){
+            Integer top = stack.peek();
+            stack.pop();
+            total = total + top;
 
         }
         stotal = Integer.toString(total);
@@ -141,6 +151,7 @@ public class allController {
         Integer total=0;
         String stotal;
         screen.getItems().clear();
+
         adjList.forEach((key,value)->{
                 LinkedList<ArrayList<String>> llist = adjList.get(key);
                 for(int i = 0; i<llist.size(); i++){
@@ -148,14 +159,16 @@ public class allController {
                     int price = Integer.parseInt(expenses.get(1));
                     if((price <= p) && (price > (p*3/4)) ){
                         screen.getItems().add(expenses.toString() + "   " + key);
+                        String s = expenses.get(1);
+                        stack.push(Integer.parseInt(s));
                     }
                 }
         });
 
-        for(int i=0; i<paymentz.size(); i++){
-
-            total = total + paymentz.get(i);
-
+        for(int i=0; i<stack.size(); i++){
+            Integer top = stack.peek();
+            stack.pop();
+            total = total + top;
         }
         stotal = Integer.toString(total);
         String totals = "PHP" + stotal;
@@ -182,6 +195,7 @@ public class allController {
         }
         menuController setter = loader.getController();
         setter.setMap(adjList);
+        setter.setArray(paymentz);
         app.setRoot(root);
     }
 }
