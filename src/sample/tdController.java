@@ -8,13 +8,13 @@ import javafx.scene.Parent;
 import javafx.scene.control.*;
 
 public class tdController {
-    public Button addToList;
+    public Button addToList, deleteList;
     public TextField expense, amount;
     public ListView<String> screen;
     public ChoiceBox<String> date;
     public Label system;
     public ListView<String> list;
-    public Profile profile;
+
     HashMap<String,LinkedList<ArrayList<String>>> adjList = new HashMap<>();
     ArrayList<Integer> payments = new ArrayList<>();
     String[] months = {"January","February","March","April","May","June","July","August","September","October","November","December"};
@@ -29,7 +29,8 @@ public class tdController {
     public void addClick() {
         if(expense.getText().isEmpty() || amount.getText().isEmpty()) {
             system.setText("Please fill in all the fields.");
-        } else {
+        }
+        else {
             ArrayList<String> userInput = new ArrayList<>();
             userInput.add(expense.getText());
             userInput.add(amount.getText());
@@ -42,6 +43,12 @@ public class tdController {
             amount.setText("");
 
         }
+    }
+    public void deleteClick() {
+        int selected = screen.getSelectionModel().getSelectedIndex();
+        screen.getItems().remove(selected);
+        adjList.re
+        system.setText("Item has been deleted from list.");
     }
 
     public void addEdge(String src, ArrayList<String> dest){
@@ -77,6 +84,10 @@ public class tdController {
             adjList.put(src,nodes);
         }
     }
+
+
+
+
 
     public void goBack() throws IOException {
         Parent root = null;

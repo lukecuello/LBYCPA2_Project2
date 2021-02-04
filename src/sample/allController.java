@@ -94,6 +94,7 @@ public class allController {
                 for(int i = 0; i<llist.size(); i++){
                     ArrayList<String> expenses = llist.get(i);
                     if(expenses.get(0).equalsIgnoreCase(expense)){
+                        Integer amount = Integer.parseInt(expenses.get(1));
                         screen.getItems().add(expenses.toString() + "   " + key);
                     }
                 }
