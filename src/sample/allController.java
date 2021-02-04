@@ -157,7 +157,7 @@ public class allController {
                 for(int i = 0; i<llist.size(); i++){
                     ArrayList<String> expenses = llist.get(i);
                     int price = Integer.parseInt(expenses.get(1));
-                    if((price <= p) && (price > (p*3/4)) ){
+                    if((price >= p) && (price < (p*4/3)) ){
                         screen.getItems().add(expenses.toString() + "   " + key);
                         String s = expenses.get(1);
                         stack.push(Integer.parseInt(s));
