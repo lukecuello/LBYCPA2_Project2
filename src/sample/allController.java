@@ -88,6 +88,7 @@ public class allController {
     }
 
     public void sortByExpense(String expense){
+        stack.removeAllElements();
         Integer total=0;
         String stotal;
         screen.getItems().clear();
@@ -100,11 +101,12 @@ public class allController {
                         screen.getItems().add(expenses.toString() + "   " + key);
                         String s = expenses.get(1);
                         stack.push(Integer.parseInt(s));
+                        System.out.println(stack.size());
                     }
                 }
         });
 
-        for(int i=0; i<stack.size(); i++){
+        for(int i=0; i<=stack.size(); i++){
             Integer top = stack.peek();
             stack.pop();
             total = total + top;
@@ -121,6 +123,7 @@ public class allController {
         Integer total=0;
         String stotal;
         screen.getItems().clear();
+
         LinkedList<ArrayList<String>> edge = adjList.get(month);
 
         if(edge!=null) {
@@ -129,15 +132,13 @@ public class allController {
                 String sorted = i.toString();
                 screen.getItems().add(sorted);
                 String s = i.get(1);
-                System.out.println(s);
                 stack.push(Integer.parseInt(s));
             }
         }
-        for(int i=0; i<stack.size(); i++){
+        for(int i=0; i<=stack.size(); i++){
             Integer top = stack.peek();
-            stack.pop();
             total = total + top;
-
+            stack.pop();
         }
         stotal = Integer.toString(total);
         String totals = "PHP" + stotal;
@@ -147,6 +148,7 @@ public class allController {
 
     public void expenseSelSort(String amount)
     {
+        stack.removeAllElements();
         int p = Integer.parseInt(amount);
         Integer total=0;
         String stotal;
@@ -165,7 +167,7 @@ public class allController {
                 }
         });
 
-        for(int i=0; i<stack.size(); i++){
+        for(int i=0; i<=stack.size(); i++){
             Integer top = stack.peek();
             stack.pop();
             total = total + top;
